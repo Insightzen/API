@@ -13,15 +13,15 @@
     }
   },
   "tags" : [ {
-    "name" : "input"
+    "name" : "Input"
   }, {
-    "name" : "output"
+    "name" : "Output"
   } ],
   "schemes" : [ "https" ],
   "paths" : {
     "/ingest" : {
       "post" : {
-        "tags" : [ "input" ],
+        "tags" : [ "Input" ],
         "summary" : "adds an sales event",
         "operationId" : "addEvent",
         "description" : "Adds an event to the system",
@@ -48,6 +48,7 @@
         }
       },
       "put" : {
+        "tags" : [ "Input" ],
         "summary" : "uploads an event dump file",
         "description" : "uploads an event dump file",
         "responses" : {
@@ -59,7 +60,7 @@
     },
     "/predict" : {
       "get" : {
-        "tags" : [ "output" ],
+        "tags" : [ "Output" ],
         "summary" : "get predicted item sold",
         "operationId" : "prediction",
         "description" : "By passing in the appropriate options, you can get predicted item sold for a SKU / Good\n",
