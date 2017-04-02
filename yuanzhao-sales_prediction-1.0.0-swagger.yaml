@@ -1,0 +1,193 @@
+swagger: '2.0'
+info:
+  description: ECommerce Analytics API
+  version: 1.0.0
+  title: Sales prediction API
+  # put the contact info for your development or API team
+  contact:
+    email: yuan@insightzen.com
+
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+
+
+
+# tags are used for organizing operations
+tags:
+- name: admins
+  description: Secured Admin-only calls
+- name: developers
+  description: Operations available to regular developers
+schemes:
+- https
+paths:
+  /ingest:
+    post:
+      tags:
+      - input
+      summary: adds an realtime sales event 
+      operationId: addEvent
+      description: Adds an event to the system
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: event
+        description: Event to add
+        schema:
+          $ref: '#/definitions/SalesEvent'
+      responses:
+        201:
+          description: event created
+        400:
+          description: invalid input, object invalid
+        409:
+          description: an existing event already exists
+  /predict:
+    get:
+      tags:
+      - output
+      summary: get predicted item sold
+      operationId: prediction
+      description: |
+        By passing in the appropriate options, you can get predicted item sold for a SKU / Good
+      produces:
+      - application/json
+      parameters:
+      - in: query
+        name: goods_id
+        required: true
+        type: string
+      - in: query
+        name: sku_id
+        required: true
+        type: string
+      - in: query
+        name: ndays
+        description: predict the sales n days out
+        type: integer
+        format: int32
+        minimum: 1
+        maximum: 31
+      responses:
+        200:
+          description: prediction result
+          schema:
+            type: object
+            items:
+              $ref: '#/definitions/Prediction'
+        400:
+          description: bad input parameter        
+definitions:
+  SalesEvent:
+    type: object
+    required:
+    - ts
+    - goods_id
+    - sku_id
+    - category_name
+    - sub_category_name
+    - shop_price
+    - prst_price
+    - country
+    - item_sold
+    - unique_buyers
+    - clicks
+    - sales_amount
+    properties:
+      ts:
+        type: integer
+        format: int64
+        description: Event UNIX timestamp
+        example: 1443628800
+      sku_id:
+        type: integer
+        format: int32
+        example: 6340
+        description: Event SKU Id  
+      goods_id:
+        type: integer
+        format: int32
+        example: 23187
+        description: Event Goods Id
+      category_name:
+        type: string
+        example: Clothing
+      sub_category_name:
+        type: string
+        example: Dresses
+      shop_price:
+        type: number
+        format: float
+        example: 25.99
+      prst_price:
+        type: number
+        format: float
+        example: 28.99
+      country:
+        type: string
+        description: Customer origination country
+        example: Canada
+      item_sold:
+        type: integer
+        format: inte32
+        example: 10
+      unique_buyers:
+        type: integer
+        format: inte32
+        example: 440
+      clicks:
+        type: integer
+        format: inte32
+        example: 12442
+      sales_amount:
+        type: integer
+        format: inte32
+        example: 20
+  
+  Prediction:
+    type: object
+    required:
+    - goods_id
+    - sku_id
+    - predicted_items_sold
+    - pred_items_sold_lb
+    - pred_items_sold_ub 
+    - confidence_score 
+    properties:
+      sku_id:
+        type: integer
+        format: int32
+        example: 6340
+        description: Event SKU Id  
+      goods_id:
+        type: integer
+        format: int32
+        example: 23187
+        description: Event Goods Id
+      predicted_items_sold:
+        type: number
+        format: float
+        example: 90  
+      pred_items_sold_lb:
+        type: number
+        format: float
+        example: 77.11
+      pred_items_sold_ub:
+        type: number
+        format: float
+        example: 120.12
+      confidence_score:
+        type: number
+        format: float
+        example: 89.15
+        
+# Added by API Auto Mocking Plugin
+host: virtserver.swaggerhub.com
+# all paths will be relative to the basePath specified
+# basePath: /sales_prediction/v1
+# Added by API Auto Mocking Plugin
+basePath: /yuanzhao/sales_prediction/1.0.0
