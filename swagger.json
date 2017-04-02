@@ -109,63 +109,51 @@
         "ts" : {
           "type" : "integer",
           "format" : "int64",
-          "description" : "Event UNIX timestamp",
-          "example" : 1443628800
+          "description" : "Event UNIX timestamp"
         },
         "sku_id" : {
           "type" : "integer",
           "format" : "int32",
-          "example" : 6340,
           "description" : "Event SKU Id"
         },
         "goods_id" : {
           "type" : "integer",
           "format" : "int32",
-          "example" : 23187,
           "description" : "Event Goods Id"
         },
         "category_name" : {
-          "type" : "string",
-          "example" : "Clothing"
+          "type" : "string"
         },
         "sub_category_name" : {
-          "type" : "string",
-          "example" : "Dresses"
+          "type" : "string"
         },
         "shop_price" : {
           "type" : "number",
-          "format" : "float",
-          "example" : 25.99
+          "format" : "float"
         },
         "prst_price" : {
           "type" : "number",
-          "format" : "float",
-          "example" : 28.99
+          "format" : "float"
         },
         "country" : {
           "type" : "string",
-          "description" : "Customer origination country",
-          "example" : "Canada"
+          "description" : "Customer origination country"
         },
         "item_sold" : {
           "type" : "integer",
-          "format" : "inte32",
-          "example" : 10
+          "format" : "inte32"
         },
         "unique_buyers" : {
           "type" : "integer",
-          "format" : "inte32",
-          "example" : 440
+          "format" : "inte32"
         },
         "clicks" : {
           "type" : "integer",
-          "format" : "inte32",
-          "example" : 12442
+          "format" : "inte32"
         },
         "sales_amount" : {
           "type" : "integer",
-          "format" : "inte32",
-          "example" : 20
+          "format" : "inte32"
         }
       }
     },
@@ -176,34 +164,28 @@
         "sku_id" : {
           "type" : "integer",
           "format" : "int32",
-          "example" : 6340,
           "description" : "Event SKU Id"
         },
         "goods_id" : {
           "type" : "integer",
           "format" : "int32",
-          "example" : 23187,
           "description" : "Event Goods Id"
         },
         "predicted_items_sold" : {
           "type" : "number",
-          "format" : "float",
-          "example" : 90
+          "format" : "float"
         },
         "pred_items_sold_lb" : {
           "type" : "number",
-          "format" : "float",
-          "example" : 77.11
+          "format" : "float"
         },
         "pred_items_sold_ub" : {
           "type" : "number",
-          "format" : "float",
-          "example" : 120.12
+          "format" : "float"
         },
         "confidence_score" : {
           "type" : "number",
-          "format" : "float",
-          "example" : 89.15
+          "format" : "float"
         }
       }
     }
