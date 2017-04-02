@@ -22,7 +22,7 @@
     "/ingest" : {
       "post" : {
         "tags" : [ "input" ],
-        "summary" : "adds an realtime sales event",
+        "summary" : "adds an sales event",
         "operationId" : "addEvent",
         "description" : "Adds an event to the system",
         "consumes" : [ "application/json" ],
@@ -44,6 +44,15 @@
           },
           "409" : {
             "description" : "an existing event already exists"
+          }
+        }
+      },
+      "put" : {
+        "summary" : "uploads an event dump file",
+        "description" : "uploads an event dump file",
+        "responses" : {
+          "200" : {
+            "description" : "OK"
           }
         }
       }
