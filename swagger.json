@@ -46,16 +46,6 @@
             "description" : "an existing event already exists"
           }
         }
-      },
-      "put" : {
-        "tags" : [ "Input" ],
-        "summary" : "uploads an event dump file",
-        "description" : "uploads an event dump file",
-        "responses" : {
-          "200" : {
-            "description" : "OK"
-          }
-        }
       }
     },
     "/predict" : {
