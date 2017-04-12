@@ -28,15 +28,6 @@ object InputApi {
       .withSuccessResponse[Unit](201)
       .withErrorResponse[Unit](400)
       .withErrorResponse[Unit](409)
-        /**
-   * uploads an event dump file
-   * 
-   * Expected answers:
-   *   code 200 :  (OK)
-   */
-  def ingestPut(): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.PUT, "https://virtserver.swaggerhub.com/yuanzhao/sales_prediction/1.0.0", "/ingest", "application/json")
-      .withSuccessResponse[Unit](200)
       
 
 }
