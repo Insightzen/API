@@ -131,19 +131,19 @@
         },
         "item_sold" : {
           "type" : "integer",
-          "format" : "inte32"
+          "format" : "int32"
         },
         "unique_buyers" : {
           "type" : "integer",
-          "format" : "inte32"
+          "format" : "int32"
         },
         "clicks" : {
           "type" : "integer",
-          "format" : "inte32"
+          "format" : "int32"
         },
         "sales_amount" : {
           "type" : "integer",
-          "format" : "inte32"
+          "format" : "int32"
         }
       }
     },
